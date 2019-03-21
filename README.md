@@ -1,4 +1,4 @@
-# Frontend Coding Problem - TEST
+# Frontend Coding Problem
 
 This is an Angular 2+ / ReactJS + HTML / CSS coding problem. This task is divided in 4 parts. First 3 are mandatory and 4th part is a bonus task. Put your code on Github and submit a repository link.
 
