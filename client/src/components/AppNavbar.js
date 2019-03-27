@@ -44,7 +44,7 @@ export default class Navigation extends React.Component {
 				<NavbarToggler onClick={this.toggle} />
 				<Collapse isOpen={this.state.isOpen} navbar>
 					{/*Pull left */}
-					<Nav className="mr-auto " navbar>
+					<Nav className="mr-auto" navbar>
 						<UncontrolledDropdown nav inNavbar className="border">
 							<DropdownToggle
 								nav
@@ -70,7 +70,7 @@ export default class Navigation extends React.Component {
 					</Nav>
 
 					{/* Pull right */}
-					<Nav className="ml-auto " navbar>
+					<Nav className="ml-auto" navbar>
 						<NavLink tag="li">
 							<IoIosSearch />
 						</NavLink>

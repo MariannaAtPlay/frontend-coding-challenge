@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Button } from 'reactstrap';
-import AppNavbar from './AppNavbar';
 import { IconContext } from 'react-icons';
 import './App.css';
+import AppNavbar from './components/AppNavbar';
+import Main from './components/Main';
 
 class App extends Component {
 	render() {
@@ -14,6 +15,7 @@ class App extends Component {
 				}}
 			>
 				<AppNavbar />
+				<Main />
 			</IconContext.Provider>
 		);
 	}
