@@ -4,9 +4,30 @@ import { IconContext } from 'react-icons';
 import './App.css';
 import AppNavbar from './components/AppNavbar';
 import Main from './components/Main';
+import * as API from './utils/api';
 
 class App extends Component {
+	state = {
+		campaigns: [],
+		cards: [],
+		currentCampaign: 'CN201701182'
+	};
+
+	componentDidMount() {
+		API.getInitialData().then((data) => {
+			this.setState(data);
+		});
+	}
+
 	render() {
+		const { currentCampaign, campaigns, cards } = this.state;
+		const filteredCards =
+			currentCampaign === 'all'
+				? cards
+				: cards.filter((card) => {
+						return card.campaignId === currentCampaign;
+				  });
+
 		return (
 			<IconContext.Provider
 				value={{
@@ -14,8 +35,8 @@ class App extends Component {
 					style: { verticalAlign: 'middle' }
 				}}
 			>
-				<AppNavbar />
-				<Main />
+				<AppNavbar campaigns={campaigns} />
+				<Main cards={filteredCards} />
 			</IconContext.Provider>
 		);
 	}
