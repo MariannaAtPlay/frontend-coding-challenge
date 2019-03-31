@@ -10,7 +10,7 @@ class App extends Component {
 	state = {
 		campaigns: [],
 		cards: [],
-		currentCampaign: 'CN201701182'
+		currentCampaign: 'CN2017012321'
 	};
 
 	componentDidMount() {

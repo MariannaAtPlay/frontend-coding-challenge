@@ -22,6 +22,7 @@ import {
 	IoIosCalendar
 } from 'react-icons/io';
 import moment from 'moment';
+import AppDropdown from './AppDropdown';
 
 export default class Navigation extends React.Component {
 	state = {
@@ -47,24 +48,7 @@ export default class Navigation extends React.Component {
 					<Collapse isOpen={this.state.isOpen} navbar>
 						{/*Pull left */}
 						<Nav className="mr-auto" navbar>
-							<UncontrolledDropdown
-								nav
-								inNavbar
-								className="border"
-							>
-								<DropdownToggle
-									nav
-									caret
-									className="text-dark px-3"
-									style={{ fontSize: 'larger' }}
-								>
-									All Campaigns
-								</DropdownToggle>
-								<DropdownMenu right>
-									<DropdownItem>Option 1</DropdownItem>
-									<DropdownItem>Option 2</DropdownItem>
-								</DropdownMenu>
-							</UncontrolledDropdown>
+							<AppDropdown campaigns={this.props.campaigns} />
 
 							<NavLink
 								tag="li"
