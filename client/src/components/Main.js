@@ -6,7 +6,7 @@ const Main = (props) => {
 	const { cards } = props;
 	const cardCols = cards.map((card) => {
 		return (
-			<Col sm="3">
+			<Col sm="3" key={card.id}>
 				<AppCard data={card} />
 			</Col>
 		);
