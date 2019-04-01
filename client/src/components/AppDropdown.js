@@ -22,7 +22,7 @@ export default class AppDropdown extends React.Component {
 	};
 
 	handleChange = (id) => {
-		const { campaigns } = this.props;
+		const { campaigns, handleCampaignChange } = this.props;
 
 		this.setState({
 			currentValue:
@@ -33,6 +33,8 @@ export default class AppDropdown extends React.Component {
 					  }
 					: campaigns.filter((camp) => camp.id === id)[0]
 		});
+
+		handleCampaignChange(id);
 	};
 
 	render() {
@@ -66,7 +68,7 @@ export default class AppDropdown extends React.Component {
 							<DropdownItem
 								key={camp.id}
 								onClick={(event) =>
-									this.handleClick(camp.id, event)
+									this.handleChange(camp.id, event)
 								}
 							>
 								{camp.campaignName}

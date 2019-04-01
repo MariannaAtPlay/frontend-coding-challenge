@@ -48,7 +48,12 @@ export default class Navigation extends React.Component {
 					<Collapse isOpen={this.state.isOpen} navbar>
 						{/*Pull left */}
 						<Nav className="mr-auto" navbar>
-							<AppDropdown campaigns={this.props.campaigns} />
+							<AppDropdown
+								campaigns={this.props.campaigns}
+								handleCampaignChange={
+									this.props.handleCampaignChange
+								}
+							/>
 
 							<NavLink
 								tag="li"

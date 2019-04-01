@@ -4,9 +4,10 @@ import AppCard from './AppCard';
 
 const Main = (props) => {
 	const { cards } = props;
-	const cardCols = cards.map((card) => {
+	const cardCols = cards.map((card, index) => {
+		//temporarily using index for the key, because card.id is not unique
 		return (
-			<Col sm="3" key={card.id}>
+			<Col sm="3" key={index}>
 				<AppCard data={card} />
 			</Col>
 		);

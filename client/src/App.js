@@ -3,14 +3,14 @@ import { Container, Row, Col, Button } from 'reactstrap';
 import { IconContext } from 'react-icons';
 import './App.css';
 import AppNavbar from './components/AppNavbar';
-import Main from './components/Main';
+import Main from './components/AppCardList';
 import * as API from './utils/api';
 
 class App extends Component {
 	state = {
 		campaigns: [],
 		cards: [],
-		currentCampaign: 'CN2017012321'
+		currentCampaign: 'all'
 	};
 
 	componentDidMount() {
@@ -18,6 +18,12 @@ class App extends Component {
 			this.setState(data);
 		});
 	}
+
+	handleCampaignChange = (campaignId) => {
+		this.setState({
+			currentCampaign: campaignId
+		});
+	};
 
 	render() {
 		const { currentCampaign, campaigns, cards } = this.state;
@@ -35,7 +41,10 @@ class App extends Component {
 					style: { verticalAlign: 'middle' }
 				}}
 			>
-				<AppNavbar campaigns={campaigns} />
+				<AppNavbar
+					campaigns={campaigns}
+					handleCampaignChange={this.handleCampaignChange}
+				/>
 				<Main cards={filteredCards} />
 			</IconContext.Provider>
 		);
