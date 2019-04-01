@@ -75,7 +75,6 @@ export default class Navigation extends React.Component {
 								Today, {moment().format('MMM Do')}
 								<IoIosArrowForward className="ml-4" size={20} />
 								<Badge
-									tag="li"
 									pill
 									id="calendar-step"
 									className="ml-3 px-3 py-2 align-items-center"

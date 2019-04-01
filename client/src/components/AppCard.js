@@ -39,7 +39,7 @@ class AppCard extends React.Component {
 						</span>
 						<span className="text-capitalize">
 							{currentWorkflow}
-							<div className="dot ml-2" />
+							<span className="dot ml-2" />
 						</span>
 					</CardText>
 					<Progress
