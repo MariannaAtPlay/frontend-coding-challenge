@@ -3,6 +3,7 @@ import {
 	Card,
 	Button,
 	CardImg,
+	CardImgOverlay,
 	CardText,
 	CardDeck,
 	CardTitle,
@@ -10,10 +11,12 @@ import {
 	CardBody,
 	CardFooter,
 	Container,
-	Progress
+	Progress,
+	Input
 } from 'reactstrap';
 import { FaDatabase } from 'react-icons/fa';
 import { IoIosEye, IoMdPeople } from 'react-icons/io';
+import AppCardMenu from './AppCardMenu';
 
 class AppCard extends React.Component {
 	render() {
@@ -28,8 +31,11 @@ class AppCard extends React.Component {
 		} = this.props.data;
 
 		return (
-			<Card className="mt-5">
+			<Card className="mt-5 rounded">
 				<CardImg top width="100%" src={primaryMediaUrl} />
+				<CardImgOverlay className="text-right p-2">
+					<AppCardMenu />
+				</CardImgOverlay>
 				<CardBody className="p-3">
 					<CardTitle>{cardTitle}</CardTitle>
 					<CardText className="d-flex justify-content-between mb-1 text-black-50">
@@ -37,6 +43,15 @@ class AppCard extends React.Component {
 							{listOfPlans[0].price.currencySymbol}{' '}
 							{listOfPlans[0].price.amount} / Month
 						</span>
+						{/* <Input
+							type="select"
+							bsSize="sm"
+							className="text-capitalize"
+							value={currentWorkflow}
+						>
+							<option value="active">Active</option>
+							<option value="terminated">Terminated</option>
+						</Input> */}
 						<span className="text-capitalize">
 							{currentWorkflow}
 							<span className="dot ml-2" />
