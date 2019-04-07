@@ -14,7 +14,9 @@ import {
 } from 'react-icons/fi';
 import { GoPencil } from 'react-icons/go';
 
-export default function AppCardMenu() {
+export default function AppCardMenu(props) {
+	const { handleModeChange } = props;
+
 	return (
 		<UncontrolledButtonDropdown>
 			<DropdownToggle
@@ -24,20 +26,36 @@ export default function AppCardMenu() {
 				<GoPencil size={20} color="orange" className="p-0" />
 			</DropdownToggle>
 			<DropdownMenu right>
-				<DropdownItem className="text-black-50">
-					<FiEdit size={20} className="mr-2" /> Edit
+				<DropdownItem
+					onClick={handleModeChange}
+					className="text-black-50"
+				>
+					<FiEdit size={20} className="mr-2" />
+					Edit
 				</DropdownItem>
 				<DropdownItem divider />
-				<DropdownItem className="text-black-50">
-					<FiCheckCircle size={20} className="mr-2" /> Publish
+				<DropdownItem
+					onClick={handleModeChange}
+					className="text-black-50"
+				>
+					<FiCheckCircle size={20} className="mr-2" />
+					Publish
 				</DropdownItem>
 				<DropdownItem divider />
-				<DropdownItem className="text-black-50">
-					<FiShare2 size={20} className="mr-2" /> Share
+				<DropdownItem
+					onClick={handleModeChange}
+					className="text-black-50"
+				>
+					<FiShare2 size={20} className="mr-2" />
+					Share
 				</DropdownItem>
 				<DropdownItem divider />
-				<DropdownItem className="text-black-50">
-					<FiTrash2 size={20} className="mr-2" /> Delete
+				<DropdownItem
+					onClick={handleModeChange}
+					className="text-black-50"
+				>
+					<FiTrash2 size={20} className="mr-2" />
+					Delete
 				</DropdownItem>
 			</DropdownMenu>
 		</UncontrolledButtonDropdown>

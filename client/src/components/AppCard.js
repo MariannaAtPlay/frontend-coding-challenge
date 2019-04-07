@@ -19,6 +19,15 @@ import { IoIosEye, IoMdPeople } from 'react-icons/io';
 import AppCardMenu from './AppCardMenu';
 
 class AppCard extends React.Component {
+	state = {
+		mode: 'Publish'
+	};
+
+	handleModeChange = (event) => {
+		event.persist();
+		this.setState({ mode: event.target.innerText });
+	};
+
 	render() {
 		const {
 			cardTitle,
@@ -34,7 +43,7 @@ class AppCard extends React.Component {
 			<Card className="mt-5 rounded">
 				<CardImg top width="100%" src={primaryMediaUrl} />
 				<CardImgOverlay className="text-right p-2">
-					<AppCardMenu />
+					<AppCardMenu handleModeChange={this.handleModeChange} />
 				</CardImgOverlay>
 				<CardBody className="p-3">
 					<CardTitle>{cardTitle}</CardTitle>
