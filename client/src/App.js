@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Button } from 'reactstrap';
+import { Container, Row, Col, Button, Input } from 'reactstrap';
 import { IconContext } from 'react-icons';
 import './App.css';
 import AppNavbar from './components/AppNavbar';
-import Main from './components/AppCardList';
+import AppCardList from './components/AppCardList';
 import * as API from './utils/api';
 
 class App extends Component {
@@ -45,7 +45,7 @@ class App extends Component {
 					campaigns={campaigns}
 					handleCampaignChange={this.handleCampaignChange}
 				/>
-				<Main cards={filteredCards} />
+				<AppCardList cards={filteredCards} />
 			</IconContext.Provider>
 		);
 	}

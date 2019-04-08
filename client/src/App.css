@@ -6,6 +6,14 @@
 	background-color: #e84c3d;
 }
 
+/* this is a workaround for the issue with <CardImgOverlay> in combination with form elements, 
+such as select. See https://github.com/reactstrap/reactstrap/issues/1277 */
+.card-img-overlay-fix {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
 .savedDot {
 	height: 0.5em;
 	width: 0.5em;
