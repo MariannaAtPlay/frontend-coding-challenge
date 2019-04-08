@@ -6,7 +6,55 @@
 	background-color: #e84c3d;
 }
 
-.dot {
+.savedDot {
+	height: 0.5em;
+	width: 0.5em;
+	background-color: blue;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.pendingDot {
+	height: 0.5em;
+	width: 0.5em;
+	background-color: orange;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.activeDot {
+	height: 0.5em;
+	width: 0.5em;
+	background-color: lightgreen;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.pausedDot {
+	height: 0.5em;
+	width: 0.5em;
+	background-color: lightgray;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.expiredDot {
+	height: 0.5em;
+	width: 0.5em;
+	background-color: red;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.declinedDot {
+	height: 0.5em;
+	width: 0.5em;
+	background-color: red;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.terminatedDot {
 	height: 0.5em;
 	width: 0.5em;
 	background-color: red;

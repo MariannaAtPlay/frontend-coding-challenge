@@ -63,7 +63,7 @@ class AppCard extends React.Component {
 						</Input> */}
 						<span className="text-capitalize">
 							{currentWorkflow}
-							<span className="dot ml-2" />
+							<span className={`${currentWorkflow}Dot ml-2`} />
 						</span>
 					</CardText>
 					<Progress
