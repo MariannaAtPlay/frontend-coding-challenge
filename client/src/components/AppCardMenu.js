@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {
 	UncontrolledButtonDropdown,
 	DropdownMenu,
@@ -13,10 +13,16 @@ import {
 	FiShare2
 } from 'react-icons/fi';
 import { GoPencil } from 'react-icons/go';
+import AppCardMenuItem from './AppCardMenuItem';
 
 export default function AppCardMenu(props) {
 	const { handleModeChange } = props;
-
+	const menu = [
+		{ menuName: 'Edit', Icon: FiEdit },
+		{ menuName: 'Publish', Icon: FiCheckCircle },
+		{ menuName: 'Share', Icon: FiShare2 },
+		{ menuName: 'Delete', Icon: FiTrash2 }
+	];
 	return (
 		<UncontrolledButtonDropdown>
 			<DropdownToggle
@@ -26,37 +32,20 @@ export default function AppCardMenu(props) {
 				<GoPencil size={20} color="orange" className="p-0" />
 			</DropdownToggle>
 			<DropdownMenu right>
-				<DropdownItem
-					onClick={handleModeChange}
-					className="text-black-50"
-				>
-					<FiEdit size={20} className="mr-2" />
-					Edit
-				</DropdownItem>
-				<DropdownItem divider />
-				<DropdownItem
-					onClick={handleModeChange}
-					className="text-black-50"
-				>
-					<FiCheckCircle size={20} className="mr-2" />
-					Publish
-				</DropdownItem>
-				<DropdownItem divider />
-				<DropdownItem
-					onClick={handleModeChange}
-					className="text-black-50"
-				>
-					<FiShare2 size={20} className="mr-2" />
-					Share
-				</DropdownItem>
-				<DropdownItem divider />
-				<DropdownItem
-					onClick={handleModeChange}
-					className="text-black-50"
-				>
-					<FiTrash2 size={20} className="mr-2" />
-					Delete
-				</DropdownItem>
+				{menu.map(({ menuName, Icon }, index) => {
+					return (
+						<Fragment key={menuName}>
+							<AppCardMenuItem
+								menuName={menuName}
+								Icon={Icon}
+								handleModeChange={handleModeChange}
+							/>
+							{index !== menu.length - 1 ? (
+								<DropdownItem divider />
+							) : null}
+						</Fragment>
+					);
+				})}
 			</DropdownMenu>
 		</UncontrolledButtonDropdown>
 	);
