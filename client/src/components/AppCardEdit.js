@@ -22,33 +22,47 @@ class AppCardEdit extends React.Component {
 		currentWorkflow: this.props.data.currentWorkflow
 	};
 
+	//possible card states based on the currentWorkflow
+	currentWorkflowOptions = {
+		saved: ['pending'],
+		pending: ['active', 'declined'],
+		active: ['paused', 'expired', 'terminated'],
+		paused: ['active'],
+		expired: null,
+		declined: null,
+		terminated: null
+	};
+
 	handleCurrentWorkflowChange = (event) => {
 		event.persist();
-		//console.log(event.target.value);
 		this.setState({ currentWorkflow: event.target.value });
 	};
 
+	handleSubmit = (event) => {
+		event.preventDefault();
+		console.log('state is: ' + this.state.currentWorkflow);
+		this.props.handleModeChange('Publish', null);
+	};
+
 	render() {
-		const {
-			cardTitle,
-			primaryMediaUrl,
-			listOfPlans,
-			currentWorkflow,
-			totalRevenue,
-			views,
-			subscribers
-		} = this.props.data;
+		const { cardTitle, primaryMediaUrl, listOfPlans } = this.props.data;
+		const { currentWorkflow } = this.state;
+		const optionsArray = this.currentWorkflowOptions[currentWorkflow];
 
 		return (
 			<Card className="mt-5 rounded">
 				<CardImg top width="100%" src={primaryMediaUrl} />
+				{/* this div with a custom CSS class is used instead of <CardImgOverlay>
+				to work around a currently open reactstrap issue with this 
+				component that affects the form 
+				see https://github.com/reactstrap/reactstrap/issues/1277 */}
 				<div className="text-right p-2 card-img-overlay-fix">
 					<AppCardMenu
 						handleModeChange={this.props.handleModeChange}
 					/>
 				</div>
-				<CardBody className="p-3">
-					<Form>
+				<Form onSubmit={this.handleSubmit}>
+					<CardBody className="p-3">
 						<CardTitle>{cardTitle}</CardTitle>
 						<CardText tag="div" className=" mb-1 text-black-50">
 							<div>
@@ -60,18 +74,34 @@ class AppCardEdit extends React.Component {
 								onChange={this.handleCurrentWorkflowChange}
 								bsSize="sm"
 								className="text-capitalize"
-								value={this.state.currentWorkflow}
+								value={currentWorkflow}
 							>
-								<option value="active">Active</option>
-								<option value="terminated">Terminated</option>
-								<option value="paused">Paused</option>
+								<option
+									value={currentWorkflow}
+									key={currentWorkflow}
+								>
+									{currentWorkflow}
+								</option>
+								{optionsArray &&
+									optionsArray.map((state) => {
+										return (
+											<option value={state} key={state}>
+												{state}
+											</option>
+										);
+									})}
 							</Input>
 						</CardText>
-					</Form>
-				</CardBody>
-				<CardFooter className="d-flex justify-content-between text-black-50">
-					<span className="text-danger">Edit Mode</span>
-				</CardFooter>
+					</CardBody>
+					<CardFooter className="d-flex justify-content-between text-black-50">
+						<span className="text-danger">Edit Mode</span>
+						<input
+							type="submit"
+							value="Submit"
+							className="text-black-50 border-0 bg-light"
+						/>
+					</CardFooter>
+				</Form>
 			</Card>
 		);
 	}

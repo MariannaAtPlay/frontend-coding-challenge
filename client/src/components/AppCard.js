@@ -25,16 +25,22 @@ class AppCard extends React.Component {
 		mode: 'Publish'
 	};
 
-	handleModeChange = (event) => {
-		event.persist();
-		this.setState({ mode: event.target.innerText });
+	handleModeChange = (mode, event) => {
+		//when event is not passed, use mode as a string
+		if (event) {
+			event.persist();
+			this.setState({ mode: event.target.innerText });
+		} else {
+			this.setState({ mode });
+		}
 	};
 
 	render() {
 		const { data } = this.props;
 		const { mode } = this.state;
 
-		if (mode === 'Publish') {
+		//Share and Delete are not currently implemented
+		if (mode === 'Publish' || mode === 'Share' || mode === 'Delete') {
 			return (
 				<AppCardPublish
 					data={data}
