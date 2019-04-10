@@ -18,7 +18,7 @@ import {
 import moment from 'moment';
 import AppDropdown from './AppDropdown';
 
-export default class Navigation extends React.Component {
+class Navigation extends React.Component {
 	state = {
 		isOpen: false
 	};
@@ -88,3 +88,5 @@ export default class Navigation extends React.Component {
 		);
 	};
 }
+
+export default Navigation;
