@@ -16,6 +16,7 @@ import {
 	Form
 } from 'reactstrap';
 import AppCardMenu from './AppCardMenu';
+import * as API from '../utils/api';
 
 class AppCardEdit extends React.Component {
 	state = {
@@ -39,9 +40,18 @@ class AppCardEdit extends React.Component {
 	};
 
 	handleSubmit = (event) => {
+		const card = this.props.data;
+		const newWorkflow = this.state.currentWorkflow;
 		event.preventDefault();
-		console.log('state is: ' + this.state.currentWorkflow);
-		this.props.handleModeChange('Publish', null);
+		//show loading
+		this.props.handleModeChange('Loading', null);
+		//API call updateCard then hide loading
+		API.updateCard(card, newWorkflow)
+			//update state
+			.then((card) => {
+				this.props.handleCardUpdate(card, newWorkflow);
+				this.props.handleModeChange('Publish', null);
+			});
 	};
 
 	render() {

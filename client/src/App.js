@@ -25,6 +25,22 @@ class App extends Component {
 		});
 	};
 
+	handleCardUpdate = (card, newWorkflow) => {
+		this.setState((prevState) => {
+			let updatedCards = prevState.cards.map((currentCard) => {
+				if (currentCard.id === card.id) {
+					currentCard.currentWorkflow = newWorkflow;
+				}
+
+				return currentCard;
+			});
+
+			return {
+				cards: updatedCards
+			};
+		});
+	};
+
 	render() {
 		const { currentCampaign, campaigns, cards } = this.state;
 		const filteredCards =
@@ -45,7 +61,10 @@ class App extends Component {
 					campaigns={campaigns}
 					handleCampaignChange={this.handleCampaignChange}
 				/>
-				<AppCardList cards={filteredCards} />
+				<AppCardList
+					cards={filteredCards}
+					handleCardUpdate={this.handleCardUpdate}
+				/>
 			</IconContext.Provider>
 		);
 	}

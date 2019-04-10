@@ -16,6 +16,7 @@ import {
 } from 'reactstrap';
 import { FaDatabase } from 'react-icons/fa';
 import { IoIosEye, IoMdPeople } from 'react-icons/io';
+import LoadingOverlay from 'react-loading-overlay';
 import AppCardMenu from './AppCardMenu';
 import AppCardPublish from './AppCardPublish';
 import AppCardEdit from './AppCardEdit';
@@ -36,22 +37,34 @@ class AppCard extends React.Component {
 	};
 
 	render() {
-		const { data } = this.props;
+		const { data, handleCardUpdate } = this.props;
 		const { mode } = this.state;
 
 		//Share and Delete are not currently implemented
-		if (mode === 'Publish' || mode === 'Share' || mode === 'Delete') {
+		if (
+			mode === 'Publish' ||
+			mode === 'Share' ||
+			mode === 'Delete' ||
+			mode === 'Loading'
+		) {
 			return (
-				<AppCardPublish
-					data={data}
-					handleModeChange={this.handleModeChange}
-				/>
+				<LoadingOverlay
+					active={mode === 'Loading'}
+					spinner
+					text="Loading..."
+				>
+					<AppCardPublish
+						data={data}
+						handleModeChange={this.handleModeChange}
+					/>
+				</LoadingOverlay>
 			);
 		} else if (mode === 'Edit') {
 			return (
 				<AppCardEdit
 					data={data}
 					handleModeChange={this.handleModeChange}
+					handleCardUpdate={handleCardUpdate}
 				/>
 			);
 		}
