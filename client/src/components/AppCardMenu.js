@@ -5,13 +5,7 @@ import {
 	DropdownItem,
 	DropdownToggle
 } from 'reactstrap';
-import {
-	FiTrash2,
-	FiCheckCircle,
-	FiEdit,
-	FiEdit2,
-	FiShare2
-} from 'react-icons/fi';
+import { FiTrash2, FiCheckCircle, FiEdit, FiShare2 } from 'react-icons/fi';
 import { GoPencil } from 'react-icons/go';
 import AppCardMenuItem from './AppCardMenuItem';
 

@@ -1,18 +1,13 @@
 import React from 'react';
 import {
 	Card,
-	Button,
 	CardImg,
 	CardImgOverlay,
 	CardText,
-	CardDeck,
 	CardTitle,
-	CardSubtitle,
 	CardBody,
 	CardFooter,
-	Container,
-	Progress,
-	Input
+	Progress
 } from 'reactstrap';
 import { FaDatabase } from 'react-icons/fa';
 import { IoIosEye, IoMdPeople } from 'react-icons/io';

@@ -1,20 +1,5 @@
 import React from 'react';
-import {
-	Card,
-	Button,
-	CardImg,
-	CardImgOverlay,
-	CardText,
-	CardDeck,
-	CardTitle,
-	CardSubtitle,
-	CardBody,
-	CardFooter,
-	Container,
-	Progress,
-	Input,
-	Form
-} from 'reactstrap';
+import { Card, CardText, CardBody } from 'reactstrap';
 import { IoIosAddCircle } from 'react-icons/io';
 
 const AppAddNewCard = () => {

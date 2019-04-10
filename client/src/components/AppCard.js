@@ -1,23 +1,5 @@
 import React from 'react';
-import {
-	Card,
-	Button,
-	CardImg,
-	CardImgOverlay,
-	CardText,
-	CardDeck,
-	CardTitle,
-	CardSubtitle,
-	CardBody,
-	CardFooter,
-	Container,
-	Progress,
-	Input
-} from 'reactstrap';
-import { FaDatabase } from 'react-icons/fa';
-import { IoIosEye, IoMdPeople } from 'react-icons/io';
 import LoadingOverlay from 'react-loading-overlay';
-import AppCardMenu from './AppCardMenu';
 import AppCardPublish from './AppCardPublish';
 import AppCardEdit from './AppCardEdit';
 
