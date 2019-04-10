@@ -9,7 +9,7 @@ import { FiTrash2, FiCheckCircle, FiEdit, FiShare2 } from 'react-icons/fi';
 import { GoPencil } from 'react-icons/go';
 import AppCardMenuItem from './AppCardMenuItem';
 
-export default function AppCardMenu(props) {
+const AppCardMenu = (props) => {
 	const { handleModeChange } = props;
 	const menu = [
 		{ menuName: 'Edit', Icon: FiEdit },
@@ -44,3 +44,5 @@ export default function AppCardMenu(props) {
 		</UncontrolledButtonDropdown>
 	);
 }
+
+export default AppCardMenu;
