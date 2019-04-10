@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import AppCard from './AppCard';
+import AppAddNewCard from './AppAddNewCard';
 
 const AppCardList = (props) => {
 	const { cards, handleCardUpdate } = props;
@@ -15,7 +16,12 @@ const AppCardList = (props) => {
 
 	return (
 		<Container>
-			<Row>{cardCols}</Row>
+			<Row>
+				{cardCols}
+				<Col sm="3" key="newCard">
+					<AppAddNewCard />
+				</Col>
+			</Row>
 		</Container>
 	);
 };
