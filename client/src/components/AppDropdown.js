@@ -6,7 +6,7 @@ import {
 	DropdownItem
 } from 'reactstrap';
 
-export default class AppDropdown extends React.Component {
+class AppDropdown extends React.Component {
 	state = {
 		isOpen: false,
 		currentValue: {
@@ -80,3 +80,5 @@ export default class AppDropdown extends React.Component {
 		);
 	}
 }
+
+export default AppDropdown;
