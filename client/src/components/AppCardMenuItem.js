@@ -1,7 +1,7 @@
 import React from 'react';
 import { DropdownItem } from 'reactstrap';
 
-export default function AppCardMenu(props) {
+const AppCardMenu = (props) => {
 	const { menuName, Icon, handleModeChange } = props;
 
 	return (
@@ -14,3 +14,5 @@ export default function AppCardMenu(props) {
 		</DropdownItem>
 	);
 }
+
+export default AppCardMenu;
