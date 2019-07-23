@@ -16,5 +16,4 @@ Notes:
 
 I hope you enjoy! Constructive and kind feedback is appreciated!
 
-Marianna Shvartsapel
-<marianna.shvartsapel@gmail.com>
+Marianna
